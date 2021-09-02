@@ -70,4 +70,16 @@ public class Restaurant {
         return name;
     }
 
+    public int getOrderTotal(List<String> orderNames){
+         int orderTotal = 0;
+         for (String inputName : orderNames){
+             for (Item item : menu){
+                 if (item.getName().equals(inputName)){
+                     orderTotal += item.getPrice();
+                 }
+             }
+         }
+       return orderTotal;
+    }
+
 }
