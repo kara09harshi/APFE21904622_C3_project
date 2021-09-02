@@ -68,4 +68,20 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    @Test
+    public void method_should_return_order_total_of_all_the_item_names_provided(){
+        List<String> orderNames = new ArrayList<String>();
+        orderNames.add("Sweet corn soup");
+        orderNames.add("Vegetable lasagne");
+
+        assertEquals(388,restaurant.getOrderTotal(orderNames));
+    }
+
+    @Test
+    public void method_should_return_zero_in_case_of_all_item_names_provided_does_not_exist(){
+        List<String> orderNames = new ArrayList<String>();
+        orderNames.add("Sweet soup");
+        orderNames.add("Vegetable lasagnes chilli");
+        assertEquals(0,restaurant.getOrderTotal(orderNames));
+    }
 }
